@@ -1,11 +1,14 @@
 {
   "type": "module",
-  "name": "frontend-project-lvl1",
+  "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "'first project hexlet'",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "brain-games": "bin/brain-games.js"
   },
   "repository": {
     "type": "git",
