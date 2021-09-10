@@ -22,5 +22,10 @@
   "homepage": "https://github.com/q865/frontend-project-lvl1#readme",
   "dependencies": {
     "promptly": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
   }
 }
