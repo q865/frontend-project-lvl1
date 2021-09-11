@@ -8,5 +8,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: make ci
-      - run: make lint
+      - run: npm ci
+      - run: npx eslint
