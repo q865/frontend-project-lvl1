@@ -1,12 +1,14 @@
-const generatorExpression = (game) => {
-  const getRandom = (diapason) => Math.round(Math.random() * diapason);
-  switch(game) {
-    case 'calc':
-      const sumbols = ['+', '-', '*'];
-      return `${getRandom(20)} ${sumbols[getRandom(2)]} ${getRandom(20)}`
-    case 'isEven':
-      return getRandom(100)
-    case 'gcd':
-      return `${getRandom(100)} ${getRandom(100)}`
+import startGame from "../index.js";
+
+export default () => {
+  const gcd = ([num1,num2])=>{
+    let min = Math.min(num1,num2)
+    while(min > 0) {
+      if(num1 % min === 0 && num2 % min === 0){
+        return min
+      }
+      min -= 1;
+    }
   }
+  startGame('gcd',gcd)
 }

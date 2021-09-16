@@ -17,7 +17,9 @@ const startGame = async (gameName, gameLogic) => {
         console.log(expression);
         return expression;
       case 'gcd':
-        return `${getRandom(100)} ${getRandom(100)}`;
+        expression = `${getRandom(100)} ${getRandom(100)}`;
+        console.log(expression)
+        return expression.split(' ');
     }
   };
   const logic = async (gameName,gameSolution,counter = 0) => {
