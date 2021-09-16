@@ -1,5 +1,5 @@
 import promptly from 'promptly';
-import cli from './games/cli.js'
+import cli from './games/cli.js';
 
 const startGame = async (gameName, gameLogic) => {
   const name = await cli();
@@ -18,11 +18,33 @@ const startGame = async (gameName, gameLogic) => {
         return expression;
       case 'gcd':
         expression = `${getRandom(100)} ${getRandom(100)}`;
-        console.log(expression)
+        console.log(expression);
         return expression.split(' ');
+      case 'progression':
+        expression = [];
+        const getExpression = () => {
+          let interval = getRandom(10);
+          let start = getRandom(100);
+          let n = 0;
+          let searchValue = getRandom(10);
+          while (n < 10) {
+            if (n === searchValue) {
+              start += interval
+              expression.push('..');
+              n++;
+              continue;
+            }
+            n++;
+            start += interval;
+            expression.push(start);
+          }
+          console.log(expression.join(' '));
+          return expression;
+        };
+        return getExpression();
     }
   };
-  const logic = async (gameName,gameSolution,counter = 0) => {
+  const logic = async (gameName, gameSolution, counter = 0) => {
     if (counter === 3) {
       return console.log(`Congratulations, ${name}`);
     }
@@ -31,11 +53,11 @@ const startGame = async (gameName, gameLogic) => {
     const truAnswer = gameSolution(expression);
     if (userAnswer == truAnswer) {
       console.log('correct!');
-      return logic(gameName,gameSolution,counter + 1);
+      return logic(gameName, gameSolution, counter + 1);
     }
     return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${truAnswer}'.
 Let's try again, ${name}`);
   };
- logic(gameName,gameLogic)
+  logic(gameName, gameLogic);
 };
 export default startGame;
