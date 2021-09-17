@@ -29,7 +29,7 @@ const startGame = async (gameName, gameLogic) => {
           let searchValue = getRandom(10);
           while (n < 10) {
             if (n === searchValue) {
-              start += interval
+              start += interval;
               expression.push('..');
               n++;
               continue;
@@ -42,6 +42,10 @@ const startGame = async (gameName, gameLogic) => {
           return expression;
         };
         return getExpression();
+      case 'praim':
+        expression = getRandom(10);
+        console.log(expression);
+        return expression;
     }
   };
   const logic = async (gameName, gameSolution, counter = 0) => {
