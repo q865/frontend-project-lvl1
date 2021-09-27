@@ -11,5 +11,5 @@ export default () => {
         return +num1 * +num2;
     }
   };
-  startGame('calc', calc);
+  startGame('calc', calc,'What is the result of the expression?');
 };

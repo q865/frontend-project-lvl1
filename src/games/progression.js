@@ -7,5 +7,5 @@ export default () => {
 		const diapason = Math.abs(array[prevIndex] - array[nextIndex])/2;
 		return array[prevIndex] + diapason
 	}
-	startGame('progression',progression)
+	startGame('progression',progression,'What number is missing in the progression?')
 }

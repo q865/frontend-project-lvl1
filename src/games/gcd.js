@@ -10,5 +10,5 @@ export default () => {
       min -= 1;
     }
   }
-  startGame('gcd',gcd)
+  startGame('gcd',gcd,'Find the greatest common divisor of given numbers.')
 }
