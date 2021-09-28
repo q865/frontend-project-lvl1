@@ -4,34 +4,33 @@ import cli from './games/cli.js';
 const startGame = async (gameName, gameLogic, rules) => {
   const name = await cli(rules);
   const generatorExpression = (gameName) => {
-    const getRandom = (diapason) => Math.round(Math.random() * diapason);
+    const getRandomIntInclusive = (min, max) => {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
+    };
     let expression;
     switch (gameName) {
       case 'calc':
         const sumbols = ['+', '-', '*'];
-        expression = `${getRandom(20)} ${sumbols[getRandom(2)]} ${getRandom(20)}`;
+        expression = `${getRandomIntInclusive(1,20)} ${sumbols[getRandomIntInclusive(0,2)]} ${getRandomIntInclusive(1,20)}`;
         console.log(`Question: ${expression}`);
         return expression.split(' ');
       case 'isEven':
-        expression = getRandom(100);
+        expression = getRandomIntInclusive(1,100);
         console.log(`Question: ${expression}`);
         return expression;
       case 'gcd':
-        expression = `${getRandom(100)} ${getRandom(100)}`;
+        expression = `${getRandomIntInclusive(1,100)} ${getRandomIntInclusive(1,100)}`;
         console.log(`Question: ${expression}`);
         return expression.split(' ');
       case 'progression':
         expression = [];
         const getExpression = () => {
-          const getRandomIntInclusive = (min, max) => {
-            min = Math.ceil(min);
-            max = Math.floor(max);
-            return Math.floor(Math.random() * (max - min + 1)) + min; 
-          };
-          let interval = getRandomIntInclusive(2,5)
-          let start = getRandom(100);
+          let interval = getRandomIntInclusive(2, 5);
+          let start = getRandomIntInclusive(0,100);
           let n = 0;
-          let searchValue = getRandom(10);
+          let searchValue = getRandomIntInclusive(0,10);
           while (n < 10) {
             if (n === searchValue) {
               start += interval;
@@ -48,7 +47,7 @@ const startGame = async (gameName, gameLogic, rules) => {
         };
         return getExpression();
       case 'praim':
-        expression = getRandom(10);
+        expression = getRandomIntInclusive(0,10);
         console.log(expression);
         return expression;
     }
