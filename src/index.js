@@ -33,7 +33,7 @@ const startGame = async (gameName, gameLogic, rules) => {
           let interval = getRandomIntInclusive(2, 5);
           let start = getRandomIntInclusive(0, 100);
           let n = 0;
-          let searchValue = getRandomIntInclusive(5, 10);
+          let searchValue = getRandomIntInclusive(0, 10);
           let answer;
           while (n < 10) {
             if (n === searchValue) {
