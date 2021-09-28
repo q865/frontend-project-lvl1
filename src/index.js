@@ -51,7 +51,7 @@ const startGame = async (gameName, gameLogic,rules) => {
   };
   const logic = async (gameName, gameSolution, counter = 0) => {
     if (counter === 3) {
-      return console.log(`Congratulations, ${name}`);
+      return console.log(`Congratulations, ${name}!`);
     }
     const expression = generatorExpression(gameName);
     const userAnswer = await readlineSync.question('Your answer: ');
