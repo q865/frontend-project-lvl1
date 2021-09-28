@@ -13,27 +13,31 @@ const startGame = async (gameName, gameLogic, rules) => {
     switch (gameName) {
       case 'calc':
         const sumbols = ['+', '-', '*'];
-        expression = `${getRandomIntInclusive(1,20)} ${sumbols[getRandomIntInclusive(0,2)]} ${getRandomIntInclusive(1,20)}`;
+        expression = `${getRandomIntInclusive(1, 20)} ${sumbols[getRandomIntInclusive(0, 2)]} ${getRandomIntInclusive(
+          1,
+          20,
+        )}`;
         console.log(`Question: ${expression}`);
         return expression.split(' ');
       case 'isEven':
-        expression = getRandomIntInclusive(1,100);
+        expression = getRandomIntInclusive(1, 100);
         console.log(`Question: ${expression}`);
         return expression;
       case 'gcd':
-        expression = `${getRandomIntInclusive(1,100)} ${getRandomIntInclusive(1,100)}`;
+        expression = `${getRandomIntInclusive(1, 100)} ${getRandomIntInclusive(1, 100)}`;
         console.log(`Question: ${expression}`);
         return expression.split(' ');
       case 'progression':
         expression = [];
         const getExpression = () => {
           let interval = getRandomIntInclusive(2, 5);
-          let start = getRandomIntInclusive(0,100);
+          let start = getRandomIntInclusive(0, 100);
           let n = 0;
-          let searchValue = getRandomIntInclusive(0,10);
+          let searchValue = getRandomIntInclusive(5, 10);
+          let answer;
           while (n < 10) {
             if (n === searchValue) {
-              start += interval;
+              answer = start += interval;
               expression.push('..');
               n++;
               continue;
@@ -43,11 +47,11 @@ const startGame = async (gameName, gameLogic, rules) => {
             expression.push(start);
           }
           console.log(expression.join(' '));
-          return expression;
+          return answer;
         };
         return getExpression();
       case 'praim':
-        expression = getRandomIntInclusive(0,10);
+        expression = getRandomIntInclusive(0, 10);
         console.log(expression);
         return expression;
     }
