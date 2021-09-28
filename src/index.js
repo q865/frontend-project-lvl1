@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import cli from './games/cli.js';
 
-const startGame = async (gameName, gameLogic,rules) => {
+const startGame = async (gameName, gameLogic, rules) => {
   const name = await cli(rules);
   const generatorExpression = (gameName) => {
     const getRandom = (diapason) => Math.round(Math.random() * diapason);
@@ -23,7 +23,12 @@ const startGame = async (gameName, gameLogic,rules) => {
       case 'progression':
         expression = [];
         const getExpression = () => {
-          let interval = getRandom(10);
+          const getRandomIntInclusive = (min, max) => {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; 
+          };
+          let interval = getRandomIntInclusive(2,5)
           let start = getRandom(100);
           let n = 0;
           let searchValue = getRandom(10);
@@ -47,7 +52,6 @@ const startGame = async (gameName, gameLogic,rules) => {
         console.log(expression);
         return expression;
     }
-
   };
   const logic = async (gameName, gameSolution, counter = 0) => {
     if (counter === 3) {
