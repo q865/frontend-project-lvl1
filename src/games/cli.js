@@ -1,9 +1,9 @@
 import readlineSync from 'readline-sync'
 
 export default async (rules) => {
-  console.log("Welcom to the Brain Games!");
+  console.log("Welcome to the Brain Games!");
   const name = await readlineSync.question("May I have your Name? ");
   console.log(`Hello, ${name}!`);
-  console.log(rules)
+  rules ? console.log(rules) : ''
   return name
 };
