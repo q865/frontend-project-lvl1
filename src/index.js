@@ -67,6 +67,9 @@ const startGame = async (gameName, gameLogic, rules) => {
       console.log('Correct!');
       return logic(gameName, gameSolution, counter + 1);
     }
+    if (gameName === 'progression') {
+      console.log(`Question: 5 7 9 11 13 .. 17 19 21 23`);
+    }
     return console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${truAnswer}'.
 Let's try again, ${name}!`);
   };
