@@ -30,8 +30,8 @@ const startGame = async (gameName, gameLogic, rules) => {
       case 'progression':
         expression = [];
         const getExpression = () => {
-          let interval = getRandomIntInclusive(3, 6);
-          let start = getRandomIntInclusive(0, 100);
+          let interval = getRandomIntInclusive(2, 5);
+          let start = getRandomIntInclusive(1, 100);
           let n = 0;
           let searchValue = getRandomIntInclusive(0, 10);
           let answer;
