@@ -1,14 +1,22 @@
-import startGame from '../index.js';
+import getRandomInt from '../utils.js';
+import runEngine from '../index.js';
 
-export default () => {
-  const gcd = ([num1, num2]) => {
-    let min = Math.min(num1, num2);
-    while (min > 0) {
-      if (num1 % min === 0 && num2 % min === 0) {
-        return min;
-      }
-      min -= 1;
+const gcd = (num1, num2) => {
+  const minNum = Math.min(num1, num2);
+  for (let divider = minNum; divider > 1; divider -= 1) {
+    if (num1 % divider === 0 && num2 % divider === 0) {
+      return divider;
     }
-  };
-  startGame('gcd', gcd, 'Find the greatest common divisor of given numbers.');
+  }
+  return 1;
 };
+
+const genRoundData = () => {
+  const num1 = getRandomInt();
+  const num2 = getRandomInt();
+  const question = `${num1} ${num2}`;
+  const correctAnswer = String(gcd(num1, num2));
+  return { correctAnswer, question };
+};
+
+export default () => runEngine(genRoundData, 'Find the greatest common divisor of given numbers.');
