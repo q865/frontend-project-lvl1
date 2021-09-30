@@ -1,15 +1,16 @@
+# Makefile
 brain-games:	
 		node bin/brain-games.js
 brain-calc:
 		node bin/brain-calc.js
 brain-gcd:
-		node bin/brain-gcd.js
+		node bin/brain-gcd
 brain-progression:
-		node bin/brain-progression.js
+		node bin/brain-progression
 brain-prime:
-		node bin/brain-prime.js
+		node bin/brain-prime
 brain-even:
-		node bin/brain-even.js
+		node bin/brain-even
 install:
 		npm install
 publish:
