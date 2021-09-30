@@ -30,10 +30,10 @@ const startGame = async (gameName, gameLogic, rules) => {
       case 'progression':
         expression = [];
         const getExpression = () => {
-          let interval = getRandomIntInclusive(2, 10);
+          let interval = getRandomIntInclusive(1, 10);
           let start = getRandomIntInclusive(1, 100);
           let n = 1;
-          let searchValue = getRandomIntInclusive(0, 10);
+          let searchValue = getRandomIntInclusive(1, 10);
           let answer;
           while (n <= 10) {
             if (n === searchValue) {
