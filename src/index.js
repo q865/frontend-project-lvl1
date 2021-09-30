@@ -28,31 +28,31 @@ const startGame = async (gameName, gameLogic, rules) => {
         console.log(`Question: ${expression}`);
         return expression.split(' ');
       case 'progression':
-        expression = [];
-        const getExpression = () => {
-          let interval = getRandomIntInclusive(1, 10);
-          let start = getRandomIntInclusive(1, 100);
-          let n = 1;
-          let searchValue = getRandomIntInclusive(1, 10);
-          let answer;
-          while (n <= 10) {
-            if (n === searchValue) {
-              answer = start += interval;
-              expression.push('..');
-              n++;
-              continue;
-            }
-            n++;
-            start += interval;
-            expression.push(start);
+        const createProgression = (firstNum, difference, lengthProgression) => {
+          const progression = [];
+          progression.push(firstNum);
+          for (let i = 1; i < lengthProgression; i++) {
+            progression.push(progression[i -1 ] + difference);
           }
-          console.log(expression.join(' '));
-          return answer;
-        };
-        return getExpression();
+          return progression;
+        }
+        const firstNum = getRandomIntInclusive(1,100)
+        const difference = getRandomIntInclusive(1,5);
+        const lengthProgression = getRandomIntInclusive(6,10)
+        const progression = createProgression(firstNum,difference,lengthProgression);
+
+        const indexNum = getRandomIntInclusive(0, (progression.length -1));
+        const encryptNumber = progression[indexNum];
+        progression[indexNum] = '..';
+        const question = progression.join(' ');
+
+        const correctAnswer = String(encryptNumber);
+        console.log(question)
+        return correctAnswer;
+
       case 'praim':
         expression = getRandomIntInclusive(0, 10);
-        console.log(expression);
+        console.log(`Question: ${expression}`);
         return expression;
     }
   };
